@@ -196,7 +196,7 @@ class MailService implements ConfigurableServiceInterface
             $mailer->isMail();
         }
 
-        (function($mailer){$this->setupMailer($mailer);})->bindTo($mail)($mailer);
+        (function($mailer){$this->setupMailer($mailer);})->bindTo($mail, get_class($mail))($mailer);
 
         return $mailer->send();
     }
